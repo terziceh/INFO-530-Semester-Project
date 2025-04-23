@@ -1,0 +1,19 @@
+.login-wrapper {
+  margin-top: 2rem;
+}
+
+.password-input {
+  padding: 0.5em;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.error-banner {
+  margin-top: 1em;
+  background-color: #ffdddd;
+  color: #d8000c;
+  padding: 0.75em;
+  border: 1px solid #d8000c;
+  border-radius: 5px;
+}
