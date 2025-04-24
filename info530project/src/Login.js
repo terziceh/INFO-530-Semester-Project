@@ -11,7 +11,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform login logic here
+    // Perform login logic here  
     console.log('User Type:', userType);
     console.log('User ID submitted:', userId);
     console.log('Password submitted:', password);
