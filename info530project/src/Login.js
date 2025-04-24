@@ -11,6 +11,10 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Perform login logic here  
+    console.log('User Type:', userType);
+    console.log('User ID submitted:', userId);
+    console.log('Password submitted:', password);
 
     // Navigate to dashboard with userId
     navigate('/dashboard', { state: { username: userId } });
