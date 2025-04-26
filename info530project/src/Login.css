@@ -41,3 +41,7 @@
   input[type="radio"] {
     margin-right: 5px;
   }
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
