@@ -5,6 +5,7 @@ import './App.css';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Schedule from './Schedule'; // This should match src/Schedule.js
+import StudentCourseView from './StudentCourseView';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/schedule" element={<Schedule />} />
+          <Route path="/studentCourse" element={<StudentCourseView />} />
         </Routes>
       </div>
     </Router>
