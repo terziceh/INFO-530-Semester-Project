@@ -3,6 +3,7 @@ import React from 'react';
 import './Schedule.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+// Simulated data (this can be replaced by API data later)
 const studentSchedules = {
   terziceh: [
     {
@@ -21,7 +22,7 @@ const studentSchedules = {
       days: "Tue, Thu",
       time: "11:00 AM – 12:15 PM"
     }
-  ]
+  ],
 };
 
 const Schedule = () => {
@@ -29,42 +30,52 @@ const Schedule = () => {
   const navigate = useNavigate();
   const username = location.state?.username?.toLowerCase();
 
+  // ⚡ This simulates pulling the student's data from an API by key
   const schedule = studentSchedules[username] || [];
 
   return (
-    <div className="container">
-      <h2>My Course Schedule</h2>
+    <div className="container p-6">
+      <h2 className="text-2xl font-bold mb-4">My Course Schedule</h2>
+
       {schedule.length > 0 ? (
         <>
-          <table>
+          <table className="min-w-full bg-white border border-gray-300 shadow-md">
             <thead>
-              <tr>
-                <th>Course #</th>
-                <th>Name</th>
-                <th>Section</th>
-                <th>Room</th>
-                <th>Days</th>
-                <th>Time</th>
+              <tr className="bg-gray-100 text-left">
+                <th className="py-2 px-4 border-b">Course #</th>
+                <th className="py-2 px-4 border-b">Name</th>
+                <th className="py-2 px-4 border-b">Section</th>
+                <th className="py-2 px-4 border-b">Room</th>
+                <th className="py-2 px-4 border-b">Days</th>
+                <th className="py-2 px-4 border-b">Time</th>
               </tr>
             </thead>
             <tbody>
               {schedule.map((course, idx) => (
                 <tr key={idx}>
-                  <td>{course.course}</td>
-                  <td>{course.name}</td>
-                  <td>{course.section}</td>
-                  <td className="course-room">{course.room}</td>
-                  <td>{course.days}</td>
-                  <td>{course.time}</td>
+                  <td className="py-2 px-4 border-b">{course.course}</td>
+                  <td className="py-2 px-4 border-b">{course.name}</td>
+                  <td className="py-2 px-4 border-b">{course.section}</td>
+                  <td className="py-2 px-4 border-b">{course.room}</td>
+                  <td className="py-2 px-4 border-b">{course.days}</td>
+                  <td className="py-2 px-4 border-b">{course.time}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <br />
-          <button onClick={() => navigate('/dashboard')}>Back to Dashboard</button>
+
+          {/* Back to Dashboard Button */}
+          <div className="mt-6">
+            <button 
+              onClick={() => navigate('/dashboard')}
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+            >
+              ← Back to Dashboard
+            </button>
+          </div>
         </>
       ) : (
-        <p>No schedule available for this user.</p>
+        <p className="text-red-600 font-medium">No schedule available for this user.</p>
       )}
     </div>
   );

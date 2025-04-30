@@ -12,6 +12,9 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Save username for use across pages
+    localStorage.setItem('username', userId);
+
     // Navigate to dashboard with userId
     navigate('/dashboard', { state: { username: userId } });
   };
